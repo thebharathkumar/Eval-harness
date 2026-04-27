@@ -1,0 +1,22 @@
+{
+  "id": "t001_recent_inactive_easy",
+  "title": "Find recent signups inactive for 7 days",
+  "description": "Return user ids that signed up in the last 7 days and have not logged in for 7 days.",
+  "category": "synthetic_postgres",
+  "difficulty": "easy",
+  "min_turns": 3,
+  "max_turns": 8,
+  "seed": 42,
+  "server": "synthetic_postgres",
+  "tools": ["list_recent_signups", "list_inactive_users", "intersect_user_ids"],
+  "user_prompt": "Find all users who signed up in the last 7 days and have not logged in during the same period. Return a comma-separated list of user ids in ascending order.",
+  "grading": {
+    "method": "programmatic",
+    "expected_output": {"final_answer": "2,8,13,20,31,33,41"},
+    "tool_constraints": {
+      "must_include": ["list_recent_signups", "list_inactive_users", "intersect_user_ids"],
+      "min_tool_calls": 3,
+      "max_tool_calls": 8
+    }
+  }
+}

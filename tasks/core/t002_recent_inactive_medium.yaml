@@ -1,0 +1,22 @@
+{
+  "id": "t002_recent_inactive_medium",
+  "title": "Same query with different seed",
+  "description": "Same logic as t001 with a different deterministic dataset seed.",
+  "category": "synthetic_postgres",
+  "difficulty": "medium",
+  "min_turns": 3,
+  "max_turns": 10,
+  "seed": 7,
+  "server": "synthetic_postgres",
+  "tools": ["list_recent_signups", "list_inactive_users", "intersect_user_ids"],
+  "user_prompt": "Return user ids that signed up within 7 days and are inactive for at least 7 days. Use only available tools and return comma-separated ids.",
+  "grading": {
+    "method": "programmatic",
+    "expected_output": {"final_answer": "4,7,11,12,15,29,32,45"},
+    "tool_constraints": {
+      "must_include": ["list_recent_signups", "list_inactive_users", "intersect_user_ids"],
+      "min_tool_calls": 3,
+      "max_tool_calls": 10
+    }
+  }
+}
