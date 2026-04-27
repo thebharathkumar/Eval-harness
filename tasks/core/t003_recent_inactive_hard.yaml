@@ -1,0 +1,22 @@
+{
+  "id": "t003_recent_inactive_hard",
+  "title": "Sparse intersection case",
+  "description": "Smaller overlap designed to catch ordering and completion errors.",
+  "category": "synthetic_postgres",
+  "difficulty": "hard",
+  "min_turns": 3,
+  "max_turns": 12,
+  "seed": 99,
+  "server": "synthetic_postgres",
+  "tools": ["list_recent_signups", "list_inactive_users", "intersect_user_ids"],
+  "user_prompt": "Find users created in the last seven days whose last login is also older than seven days. Reply only with comma-separated user ids in ascending order.",
+  "grading": {
+    "method": "programmatic",
+    "expected_output": {"final_answer": "29,32"},
+    "tool_constraints": {
+      "must_include": ["list_recent_signups", "list_inactive_users", "intersect_user_ids"],
+      "min_tool_calls": 3,
+      "max_tool_calls": 12
+    }
+  }
+}
